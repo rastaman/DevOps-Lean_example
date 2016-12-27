@@ -1,6 +1,5 @@
-# base_template
-This is a base template created for quickly creating data processing applications/API micro services.
-
+# Security Microservices
+This is a security microservice. It will authenticate all comunications between microservices and frontend. 
 
 # Setup guide
 
