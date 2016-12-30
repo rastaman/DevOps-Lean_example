@@ -17,6 +17,8 @@ testing account
 
 mongo admin -u jphan -p someyoungguy
 
+mongo 192.168.1.134:27017/auth admin -u jphan -p someyoungguy
+
 JWT auth model examples used.
 
 https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
