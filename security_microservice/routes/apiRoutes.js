@@ -11,18 +11,15 @@ mongoose.createConnection(config.database); // connect to database
 var superSecret = config.secret; // secret variable
 
 router.post('/authenticate', function(req, res) {
-
   // find the user
   User.findOne({
     name: req.body.name
   }, function(err, user) {
-
+    console.log(req.body);
     if (err) throw err;
-
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (user) {
-
       // check if password matches
       if (user.password != req.body.password) {
         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
