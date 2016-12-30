@@ -10,12 +10,12 @@ var User   = require('./../models/user'); // get our mongoose model
 mongoose.createConnection(config.database); // connect to database
 var superSecret = config.secret; // secret variable
 
-router.post('/authenticate', function(req, res) {
+router.options('/authenticate', function(req, res) {
   // find the user
   User.findOne({
     name: req.body.name
   }, function(err, user) {
-    console.log(req.body);
+    console.log(req);
     if (err) throw err;
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
