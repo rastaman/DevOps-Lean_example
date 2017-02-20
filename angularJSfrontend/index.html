@@ -7,7 +7,7 @@
     // Defining angularjs application.
     var postApp = angular.module('postApp', []);
     // Controller function and passing $http service and $scope var.
-    postApp.controller('postController', function($scope, $http) {
+    postApp.controller('postController', function($scope, $http, $window) {
       // create a blank object to handle form data.
         $scope.user = {};
       // calling our submit function.
@@ -20,12 +20,20 @@
           headers : {'Content-Type': 'application/json'} 
          })
           .success(function(data) {
+            console.log($window)
             if (data.errors) {
               // Showing errors.
               $scope.errorName = data.errors.name;
               $scope.errorPassword = data.errors.password;
             } else {
-              $scope.message = data.message;
+              //SAVE localstorage  VAUE example
+              localStorage.setItem("Token", data.token);
+              //SAVE localstorage  VAUE example
+              $scope.token = localStorage.getItem("Token");
+              //SAVE Session VAUE example
+              $window.sessionStorage.setItem("Token", data.token );
+              //SHOW session VAUE example
+              $scope.token2 = $window.sessionStorage.getItem("Token");
             }
           });
         };
@@ -49,7 +57,7 @@
         <span ng-show="errorPassword">{{errorPassword}}</span>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    	<span ng-show="message">{{message}}</span>
+    	<span ng-show="token">your token is: {{token}}</span>
     </form>
 </div>
 </div>
