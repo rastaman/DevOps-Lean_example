@@ -6,7 +6,7 @@ My local envirment
 * Mac OS
 * Native Docer installed on Mac
 * Node version tested against - v4.4.7
-* NPM tested ahains - 2.15.8
+* NPM tested against - 2.15.8
 
 
 
