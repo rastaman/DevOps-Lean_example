@@ -10,6 +10,7 @@
     postApp.controller('postController', function($scope, $http, $window) {
       // create a blank object to handle form data.
         $scope.user = {};
+        $scope.token = localStorage.getItem("Token");
       // calling our submit function.
         $scope.submitForm = function() {
         // Posting data to php file
