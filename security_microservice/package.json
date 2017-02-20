@@ -15,7 +15,6 @@
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
-    "name": "node-token-jwt",
     "nodemon": "^1.11.0",
     "serve-favicon": "~2.3.0"
   }
