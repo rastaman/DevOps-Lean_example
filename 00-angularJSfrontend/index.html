@@ -16,7 +16,7 @@
         // Posting data to php file
         $http({
           method  : 'POST',
-          url     : 'http://localhost:3000/api/authenticate',
+          url     : 'http://localhost:3001/api/authenticate',
           data    : $scope.user, //forms user object
           headers : {'Content-Type': 'application/json'} 
          })
@@ -42,11 +42,10 @@
     postApp.controller('NonSecureController', function ($scope, $http) {
         $http({
           method  : 'GET',
-          url     : 'http://localhost:3001/scrape',
+          url     : 'http://localhost:3002/scrape',
           headers : {'Content-Type': 'application/json'} 
          })
           .success(function(data) {
-            console.log($window)
             if (data.errors) {
               // Showing errors.
               $scope.errorName = data.errors.name;
@@ -57,8 +56,7 @@
               $scope.rating = data.rating
             }
           });
-        };
-});
+    });
 </script>
 </head>
 <body ng-app="postApp" ng-controller="postController">
@@ -84,7 +82,7 @@
   <p> Thanks for logging in - your token is: {{token}} </p>
 </div>
 <div class="col-sm-8 col-sm-offset-2" ng-controller="NonSecureController">
-  <p> Movies you should see is {{MovieTitle}} because it got a ratting of {{rating}}. It was released in {{released}} </p>
+  <p> Movies you should see is {{MovieTitle}} because it got a rating of {{rating}}. It was released in {{released}} </p>
 </div>
 
 </div>

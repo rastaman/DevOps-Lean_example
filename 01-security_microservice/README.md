@@ -9,7 +9,7 @@ docker run --name secure_app -p 27018:27017 -d mongo --auth
 
 Add the following user for the example to work.
 
-docker exec -it security_app mongo admin
+docker exec -it secure_app mongo admin
 
 connecting to: admin
 

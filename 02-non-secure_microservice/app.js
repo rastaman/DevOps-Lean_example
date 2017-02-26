@@ -6,6 +6,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
 
 var index = require('./routes/index');
 
@@ -17,6 +18,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
