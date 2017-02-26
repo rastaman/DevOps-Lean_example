@@ -39,6 +39,26 @@
           });
         };
     });
+    postApp.controller('NonSecureController', function ($scope, $http) {
+        $http({
+          method  : 'GET',
+          url     : 'http://localhost:3001/scrape',
+          headers : {'Content-Type': 'application/json'} 
+         })
+          .success(function(data) {
+            console.log($window)
+            if (data.errors) {
+              // Showing errors.
+              $scope.errorName = data.errors.name;
+              $scope.errorPassword = data.errors.password;
+            } else {
+              $scope.MovieTitle = data.title
+              $scope.released = data.release
+              $scope.rating = data.rating
+            }
+          });
+        };
+});
 </script>
 </head>
 <body ng-app="postApp" ng-controller="postController">
@@ -62,6 +82,9 @@
 </div>
 <div class="col-sm-8 col-sm-offset-2" ng-show="token != null" class="ng-hide">
   <p> Thanks for logging in - your token is: {{token}} </p>
+</div>
+<div class="col-sm-8 col-sm-offset-2" ng-controller="NonSecureController">
+  <p> Movies you should see is {{MovieTitle}} because it got a ratting of {{rating}}. It was released in {{released}} </p>
 </div>
 
 </div>

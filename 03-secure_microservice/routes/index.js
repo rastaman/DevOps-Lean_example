@@ -45,9 +45,4 @@ router.post('/delete', function(req, res, next) {
    });
 });
 
-// respond with "hello world" when a GET request is made to the homepage
-router.get('/test', function (req, res) {
-  res.send('hello world')
-})
-
 module.exports = router;
