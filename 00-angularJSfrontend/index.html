@@ -60,11 +60,16 @@
     postApp.controller('SecureController', function ($scope, $http) {
         
         $scope.token = localStorage.getItem("Token");
-        if (typeof token !== 'undefined') {
+        if (typeof $scope.token !== 'undefined') {
           $http({
             method  : 'GET',
             url     : 'http://localhost:3003/names',
-            headers : {'Content-Type': 'application/json'} 
+            headers : [
+            {
+              'Content-Type': 'application/json',
+              'x-access-token': $scope.token
+            } 
+          ]
           })
           .success(function(data) {
             if (data.errors) {
@@ -104,7 +109,7 @@
 <div class="col-sm-8 col-sm-offset-2" ng-controller="NonSecureController">
   <p> Movies you should see is {{MovieTitle}} because it got a rating of {{rating}}. It was released in {{released}} </p>
 </div>
-<div class="col-sm-8 col-sm-offset-2" ng-controller="SecureController" ng-show="token == null" class="ng-hide">
+<div class="col-sm-8 col-sm-offset-2" ng-controller="SecureController">
   <p> Secure Data by {{firstName}} {{lastName}} </p>
 </div>
 
