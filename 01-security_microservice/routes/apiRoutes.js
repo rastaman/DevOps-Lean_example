@@ -89,4 +89,12 @@ router.get('/users', function(req, res) {
   });
 });
 
+// route to return all users (GET http://localhost:8080/api/users)
+router.get('/roleCheck', function(req, res) {
+  User.find({}, function(err, users) {
+    res.json(users);
+  });
+});
+
+
 module.exports = router;

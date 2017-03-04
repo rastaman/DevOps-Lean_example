@@ -57,6 +57,26 @@
             }
           });
     });
+    postApp.controller('SecureController', function ($scope, $http) {
+        
+        $scope.token = localStorage.getItem("Token");
+        if (typeof token !== 'undefined') {
+          $http({
+            method  : 'GET',
+            url     : 'http://localhost:3003/names',
+            headers : {'Content-Type': 'application/json'} 
+          })
+          .success(function(data) {
+            if (data.errors) {
+              // Showing errors.
+              $scope.errorName = data.errors.name;
+            } else {
+              $scope.firstName = data.firstName
+              $scope.lastName = data.lastName
+            }
+          });
+        }
+    });
 </script>
 </head>
 <body ng-app="postApp" ng-controller="postController">
@@ -83,6 +103,9 @@
 </div>
 <div class="col-sm-8 col-sm-offset-2" ng-controller="NonSecureController">
   <p> Movies you should see is {{MovieTitle}} because it got a rating of {{rating}}. It was released in {{released}} </p>
+</div>
+<div class="col-sm-8 col-sm-offset-2" ng-controller="SecureController" ng-show="token == null" class="ng-hide">
+  <p> Secure Data by {{firstName}} {{lastName}} </p>
 </div>
 
 </div>
