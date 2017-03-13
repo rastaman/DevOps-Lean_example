@@ -10,8 +10,8 @@ This repository is used to track all microservices as part of microservices arch
 
 # Project goals
 
-1> Demonstrate Microservices architecture security model using JWT.
-2> Demontrate how Docker can speed development and config managment.
-3> Demonstrate power of ProjectZero in starting a project quickly.
-4> Use Swagger to show self documenting API working.
+* Demonstrate Microservices architecture security model using JWT.
+* Demontrate how Docker can speed development and config managment.
+* Demonstrate power of ProjectZero in starting a project quickly.
+* Use Swagger to show self documenting API working.
 
