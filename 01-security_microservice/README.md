@@ -13,7 +13,9 @@ docker exec -it secure_app mongo admin
 
 connecting to: admin
 
+
 db.createUser({ user: 'jphan', pwd: 'someyoungguy', roles: [ "readWriteAnyDatabase", "dbAdminAnyDatabase", "userAdminAnyDatabase" ] });
+
 
 testing account
 

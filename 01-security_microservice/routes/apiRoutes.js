@@ -18,7 +18,6 @@ router.post('/authenticate', function(req, res) {
   User.findOne({
     name: req.body.name
   }, function(err, user) {
-    console.log(req.body);
     if (err) throw err;
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.', errors: { name : "Authentication failed. User not found."} });
@@ -30,7 +29,7 @@ router.post('/authenticate', function(req, res) {
 
         // if user is found and password is right
         // create a token
-        var token = jwt.sign(user, superSecret, {
+        var token = jwt.sign({data: user}, superSecret, {
           expiresIn : 60*60*24 // expires in 24 hours
         });
 
@@ -90,8 +89,39 @@ router.get('/users', function(req, res) {
 });
 
 // route to return all users (GET http://localhost:8080/api/users)
-router.get('/roleCheck', function(req, res) {
-  User.find();
+router.post('/roleCheck', function(req, res) {
+  // post parameters for token
+  var token = req.body.token;
+  var service = req.body.role;
+  console.log("role details")
+  console.log(service)
+  // decode token
+  if (token) {
+
+    // verifies secret and checks exp
+    jwt.verify(token, superSecret, function(err, decoded) {      
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });    
+      } else {
+        console.log("token role") 
+        console.log(decoded.data.role)
+        function isInArray(value, array) {
+          return array.indexOf(value) > -1;
+        }
+        res.json({ status: isInArray( service, decoded.data.role ) });
+      }
+    });
+
+  } else {
+
+    // if there is no token
+    // return an error
+    return res.status(403).send({ 
+        success: false, 
+        message: 'No token provided.' 
+    });
+    
+  }
 });
 
 

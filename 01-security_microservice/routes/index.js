@@ -21,7 +21,10 @@ router.get('/setup', function(req, res) {
     name: 'Nick Cerminara', 
     password: 'password',
     admin: true,
-    role: [ "03-secure_microservice", "04-secure_stream_microservice"]
+    role: [
+        "03-secure_microservice", 
+        "04-secure_stream_microservice"
+      ]
   });
 
   // save the sample user
