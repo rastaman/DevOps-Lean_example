@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var _ = require('lodash');
-var request = require('request');
+var request = require('request-json');
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -9,22 +8,21 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.post('/names', function(req, res) {
-  url = 'http://localhost:3001/api/roleCheck';
-  body = { "token": req.body.token, "role": "03-secure_microservice" };
-  request(url, body, function(error, response, html){
+  var client = request.createClient('http://localhost:3001');
+  data = { "token": req.body.token, "role": "03-secure_microservice" };
+  client.post('/api/roleCheck', data, function(error, response, body) {
     if(!error){
-      if (response.status) {
+      console.log(response.body.success);
+      if (response.body.success) {
         var json = {"firstName":"John", "lastName":"Phan"};
-        console.log(json);
         res.send(JSON.stringify(json))
       } else {
-        res.json({ status: false, message: 'they lied, the security guys said they are not allowed this data' });
+        res.json({ success: false, message: 'they lied, the security guys said they are not allowed this data' });
       }
     } else {
-      res.json({ status: false, message: 'broken, I am broken help me' + error });
+      res.json({ success: false, message: 'broken, I am broken help me' + error });
     }
-  })
-
+  });
 });
 
 module.exports = router;
