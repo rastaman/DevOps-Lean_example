@@ -93,8 +93,6 @@ router.post('/roleCheck', function(req, res) {
   // post parameters for token
   var token = req.body.token;
   var service = req.body.role;
-  console.log("token value") 
-  console.log(req.body.token)
   // decode token
   if (token) {
     // verifies secret and checks exp
@@ -102,12 +100,21 @@ router.post('/roleCheck', function(req, res) {
       if (err) {
         return res.json({ success: false, message: 'Failed to authenticate token.' });    
       } else {
-        console.log("token role") 
-        console.log(decoded.data.role)
-        function isInArray(value, array) {
-          return array.indexOf(value) > -1;
-        }
-        res.json({ success: isInArray( service, decoded.data.role ) });
+        User.findOne({
+          name: decoded.data.name
+        }, function(err, user) {
+          if (err) throw err;
+          if (!user) {
+            res.json({ success: false, message: 'Authentication failed. User not found.', errors: { name : "Authentication failed. User not found."} });
+          } else if (user) {
+              function isInArray(value, array) {
+                return array.indexOf(value) > -1;
+              }
+            console.log(user)
+            res.json({ success: isInArray( service, user.role ) });
+          }
+
+        }); 
       }
     });
 
