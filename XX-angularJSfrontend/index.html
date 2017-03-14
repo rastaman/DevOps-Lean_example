@@ -62,14 +62,9 @@
         $scope.token = localStorage.getItem("Token");
         if (typeof $scope.token !== 'undefined') {
           $http({
-            method  : 'GET',
+            method  : 'POST',
             url     : 'http://localhost:3003/names',
-            headers : [
-            {
-              'Content-Type': 'application/json',
-              'x-access-token': $scope.token
-            } 
-          ]
+            data : { "token": $scope.token }
           })
           .success(function(data) {
             if (data.errors) {
