@@ -46,36 +46,36 @@ router.post('/authenticate', function(req, res) {
   });
 });
 
-router.use(function(req, res, next) {
+// router.use(function(req, res, next) {
 
-  // check header or url parameters or post parameters for token
-  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+//   // check header or url parameters or post parameters for token
+//   var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
-  // decode token
-  if (token) {
+//   // decode token
+//   if (token) {
 
-    // verifies secret and checks exp
-    jwt.verify(token, superSecret, function(err, decoded) {      
-      if (err) {
-        return res.json({ success: false, message: 'Failed to authenticate token.' });    
-      } else {
-        // if everything is good, save to request for use in other routes
-        req.decoded = decoded;    
-        next();
-      }
-    });
+//     // verifies secret and checks exp
+//     jwt.verify(token, superSecret, function(err, decoded) {      
+//       if (err) {
+//         return res.json({ success: false, message: 'Failed to authenticate token.' });    
+//       } else {
+//         // if everything is good, save to request for use in other routes
+//         req.decoded = decoded;    
+//         next();
+//       }
+//     });
 
-  } else {
+//   } else {
 
-    // if there is no token
-    // return an error
-    return res.status(403).send({ 
-        success: false, 
-        message: 'No token provided.' 
-    });
+//     // if there is no token
+//     // return an error
+//     return res.status(403).send({ 
+//         success: false, 
+//         message: 'No token provided.' 
+//     });
     
-  }
-});
+//   }
+// });
 
 router.get('/', function(req, res) {
   res.json({ message: 'Welcome to the coolest API on earth!' });
@@ -93,11 +93,10 @@ router.post('/roleCheck', function(req, res) {
   // post parameters for token
   var token = req.body.token;
   var service = req.body.role;
-  console.log("role details")
-  console.log(service)
+  console.log("token value") 
+  console.log(req.body.token)
   // decode token
   if (token) {
-
     // verifies secret and checks exp
     jwt.verify(token, superSecret, function(err, decoded) {      
       if (err) {
@@ -108,7 +107,7 @@ router.post('/roleCheck', function(req, res) {
         function isInArray(value, array) {
           return array.indexOf(value) > -1;
         }
-        res.json({ status: isInArray( service, decoded.data.role ) });
+        res.json({ success: isInArray( service, decoded.data.role ) });
       }
     });
 

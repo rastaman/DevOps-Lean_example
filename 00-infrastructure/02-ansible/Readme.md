@@ -1,0 +1,1 @@
+all ansible instructuons and assets to start kub on multiple cloud platforms

@@ -1,0 +1,1 @@
+all terraform instructuons and assets to start kub on multiple cloud platforms
