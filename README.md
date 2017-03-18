@@ -1,5 +1,5 @@
 # DevOps full stack example
-This repository tracks all the materials to walk throught DevOps and Agile from begining to end
+This repository tracks all the materials to walk throught DevOps and Agile from begining to end.
 
 # My local envirment
 
@@ -30,8 +30,6 @@ This repository tracks all the materials to walk throught DevOps and Agile from 
 |  | Quick basic setup of all Devops tool. - Jmeter/railgun | NOT DONE |
 |  | Add graphical GUI to allow selecting tools that auto intergrate | NOT DONE |
 |  | Setup microblock market throught graphical | NOT DONE |
-|  | asd | NOT DONE |
-|  | asd | NOT DONE |
 | 02-Micro_Services | Demo migrating micro services across providers| |
 |  | Security Example | DONE |
 |  | None Secure Micro services example | DONE |
@@ -44,9 +42,13 @@ This repository tracks all the materials to walk throught DevOps and Agile from 
 |  | Reactjs | DONE |
 |  | Web Accessibility for Disabled People | NOT DONE |
 | 04-Doc | Documents showing ways of working and presentations |  |
-|  | Explain Human process | NOT DONE |
 |  | Demo increased flow | NOT DONE |
 |  | DevOps rewview | NOT DONE |
+|  | Walk throught Organization-process-tech changes over the three area's below| NOT DONE |
+|  | Walk throught idea farm | NOT DONE |
+|  | Walk throught Delivery | NOT DONE |
+|  | Walk throught Validayion | NOT DONE |
+|  | Operational Howto doc's when up| NOT DONE |
 
 
 

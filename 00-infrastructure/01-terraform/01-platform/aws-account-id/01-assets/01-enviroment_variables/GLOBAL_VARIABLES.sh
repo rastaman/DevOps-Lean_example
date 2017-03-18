@@ -5,12 +5,11 @@ TF_VERSION=0.8.5
 
 ### AWS configuration ###
 AWS_REGION=eu-west-1
-ENVIRONMENT_PROFILE=aws-account-id
+ACCOUNT_PROFILE=aws-account-id
 VPC_ENV=02-main
 AWS_DOMAIN_SUFFIX=main.vpc.internal
 ### AWS remote state file ###
 STATEFILE_BUCKET=aws-kubernetes
-STATEFILE_KEY_PREFIX="aws/main"
 STORAGE_PROFILE=S3Storage
 
 ### use correct terraform binary based on automation ###
@@ -31,13 +30,18 @@ TERRAFORM_BIN=terraform-${TF_VERSION}.${OSTYPE}.${ARCHITECTURE}
 CURRENT=`pwd -P`
 COMPONENT=`basename $CURRENT`
 echo "COMPONENT:  $COMPONENT"
+
 CURRENT_DIR=`dirname $CURRENT`
 COM_LOC=`basename $CURRENT_DIR`
 echo "COMPONENT LOCATION:  $COM_LOC"
 
+VPC_DIR=`dirname $CURRENT_DIR`
+VPC_LOC=`basename $VPC_DIR`
+echo "VPC NAME:  $VPC_LOC"
 
-if [ ${LAYER_3} == ${VPC_ENV} ]; then
-   STATE_FILE_LOCATION=${STATEFILE_KEY_PREFIX}/vpc-${VPC_ENV}/${COM_LOC}/${COMPONENT}/terraform.tfstate
+
+if [ ${VPC_LOC} == ${VPC_ENV} ]; then
+   STATE_FILE_LOCATION=${ACCOUNT_PROFILE}/vpc-${VPC_ENV}/${COM_LOC}/${COMPONENT}/terraform.tfstate
    TERRAFORM="../../../../03-bin/${TERRAFORM_BIN}"
    	if [ -a ${TERRAFORM} ]; then
 		echo "Binaries exist"

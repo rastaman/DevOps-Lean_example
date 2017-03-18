@@ -9,7 +9,7 @@ echo "Terraform state file location:	${STATE_FILE_LOCATION}"
 echo "########################################################"
 echo "AWS region deployed:				${AWS_REGION}"
 echo "########################################################"
-echo "AWS profile used:					${ENVIRONMENT_PROFILE}"
+echo "AWS profile used:					${ACCOUNT_PROFILE}"
 echo "########################################################"
 
 ${TERRAFORM} remote config \
@@ -17,5 +17,5 @@ ${TERRAFORM} remote config \
             -backend-config="bucket=${STATEFILE_BUCKET}" \
             -backend-config="key=${STATE_FILE_LOCATION}" \
             -backend-config="region=${AWS_REGION}" \
-            -backend-config="profile=${ENVIRONMENT_PROFILE}"
+            -backend-config="profile=${ACCOUNT_PROFILE}"
 
