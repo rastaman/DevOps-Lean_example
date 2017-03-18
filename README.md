@@ -1,5 +1,5 @@
 # DevOps full stack example
-This repository tracks all the materials to walk throught DevOps and Agile from begining to end.
+This repository tracks all the materials to walk throught DevOps and Lean from begining to end.
 
 # My local envirment
 
