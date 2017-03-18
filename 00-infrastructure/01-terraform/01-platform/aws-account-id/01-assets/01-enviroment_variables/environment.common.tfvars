@@ -4,10 +4,6 @@ aws_profile          = "aws-account-id"
 aws_bucket           = "aws-kubernetes"
 statefile_key_prefix = "aws-account-id"
 
-route53_main         = "example.io"
-route53_main_zone_id = "XXXXXXXXXXXX"
-ssl_certificate_arn  = "arn:aws:acm:eu-west-1:XXXXXXXXXXXX:certificate/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-
 # ======================
 #   Tagging and Naming
 # ======================
