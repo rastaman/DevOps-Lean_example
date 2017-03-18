@@ -39,6 +39,13 @@ echo "COMPONENT LOCATION:  $COM_LOC"
 if [ ${LAYER_3} == ${VPC_ENV} ]; then
    STATE_FILE_LOCATION=${STATEFILE_KEY_PREFIX}/vpc-${VPC_ENV}/${COM_LOC}/${COMPONENT}/terraform.tfstate
    TERRAFORM="../../../../03-bin/${TERRAFORM_BIN}"
+   	if [ -a ${TERRAFORM} ]; then
+		echo "Binaries exist"
+	else
+		cd ../../../../03-bin/
+		bash bin.sh
+		cd $CURRENT
+	fi
 else
    echo "you made your folder structure too complex and there is no need. stop wasting time and read the notes in GLOBAL_VARIABLES.sh"
 fi
