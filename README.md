@@ -11,7 +11,7 @@ This repository tracks all the materials to walk throught DevOps and Agile from 
 # Project Checklist and folder structure.
 
 | Goal        | Description/ Sub Goal   | Completed |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------| -----:|
 | 00-infrastructure | Terraform/Ansible/kubernetes show low operational cost systems. Self healing infra |  |
 |  | AWS - Kubernetes | NOT DONE |
 |  | Google Compute - Kubernetes | NOT DONE |
@@ -42,6 +42,7 @@ This repository tracks all the materials to walk throught DevOps and Agile from 
 |  | Reactjs | DONE |
 |  | Web Accessibility for Disabled People | NOT DONE |
 | 04-Doc | Documents showing ways of working and presentations |  |
+|  | 01-Infra setup guide/doc's | NOT DONE |
 |  | Demo increased flow | NOT DONE |
 |  | DevOps rewview | NOT DONE |
 |  | Walk throught Organization-process-tech changes over the three area's below| NOT DONE |
@@ -49,6 +50,10 @@ This repository tracks all the materials to walk throught DevOps and Agile from 
 |  | Walk throught Delivery | NOT DONE |
 |  | Walk throught Validayion | NOT DONE |
 |  | Operational Howto doc's when up| NOT DONE |
+
+Real world changes - REMINDERS
+
+* I would normally not put everything in one got repo. Eacg root folder would usaully be in seperate git repositories. However github won't let me group repositories. So... for an example this is better.
 
 
 
