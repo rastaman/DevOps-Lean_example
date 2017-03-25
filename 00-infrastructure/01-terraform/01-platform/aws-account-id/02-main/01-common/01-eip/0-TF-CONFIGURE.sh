@@ -1,1 +1,0 @@
-../../../01-assets/03-automation/0-TF-CONFIGURE.sh
