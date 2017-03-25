@@ -9,7 +9,7 @@ ACCOUNT_PROFILE=aws-account-id
 VPC_ENV=02-main
 AWS_DOMAIN_SUFFIX=main.vpc.internal
 ### AWS remote state file ###
-STATEFILE_BUCKET=aws-kubernetes
+STATEFILE_BUCKET=aws-kub
 STORAGE_PROFILE=S3Storage
 
 ### use correct terraform binary based on automation ###
@@ -39,14 +39,14 @@ VPC_DIR=`dirname $CURRENT_DIR`
 VPC_LOC=`basename $VPC_DIR`
 echo "VPC NAME:  $VPC_LOC"
 
-
+echo $ACCOUNT_PROFILE
 if [ ${VPC_LOC} == ${VPC_ENV} ]; then
    STATE_FILE_LOCATION=${ACCOUNT_PROFILE}/vpc-${VPC_ENV}/${COM_LOC}/${COMPONENT}/terraform.tfstate
-   TERRAFORM="../../../../03-bin/${TERRAFORM_BIN}"
+   TERRAFORM="../../../../../03-bin/${TERRAFORM_BIN}"
    	if [ -a ${TERRAFORM} ]; then
 		echo "Binaries exist"
 	else
-		cd ../../../../03-bin/
+		cd ../../../../../03-bin/
 		bash bin.sh
 		cd $CURRENT
 	fi

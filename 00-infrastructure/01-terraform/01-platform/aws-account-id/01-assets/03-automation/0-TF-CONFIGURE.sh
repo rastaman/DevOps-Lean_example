@@ -17,5 +17,4 @@ ${TERRAFORM} remote config \
             -backend-config="bucket=${STATEFILE_BUCKET}" \
             -backend-config="key=${STATE_FILE_LOCATION}" \
             -backend-config="region=${AWS_REGION}" \
-            -backend-config="profile=${ACCOUNT_PROFILE}"
 
