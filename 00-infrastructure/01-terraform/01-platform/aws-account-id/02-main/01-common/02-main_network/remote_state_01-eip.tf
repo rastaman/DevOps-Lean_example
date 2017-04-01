@@ -1,0 +1,1 @@
+../../../01-assets/02-template_tf_files/remote_state_01-eip.tf

@@ -1,0 +1,1 @@
+../../../01-assets/02-template_tf_files/template-main_network.tf

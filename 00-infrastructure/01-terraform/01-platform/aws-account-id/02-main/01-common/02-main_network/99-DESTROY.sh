@@ -1,0 +1,1 @@
+../../../01-assets/03-automation/99-DESTROY.sh
