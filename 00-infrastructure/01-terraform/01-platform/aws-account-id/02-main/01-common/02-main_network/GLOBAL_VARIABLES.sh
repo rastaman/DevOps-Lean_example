@@ -1,0 +1,1 @@
+../../../01-assets/01-enviroment_variables/GLOBAL_VARIABLES.sh
