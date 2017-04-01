@@ -1,7 +1,7 @@
 variable "aws_region" {}
 variable "aws_profile" {}
 variable "aws_bucket" {}
-variable "providers_key_prefix" {}
+variable "statefile_key_prefix" {}
 
 variable "env" {}
 variable "vpc_env" {}

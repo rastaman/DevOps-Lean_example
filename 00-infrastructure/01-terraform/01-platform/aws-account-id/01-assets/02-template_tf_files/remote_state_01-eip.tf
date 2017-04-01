@@ -7,7 +7,7 @@ data "terraform_remote_state" "permanent_ips" {
   config {
     bucket  = "${var.aws_bucket}"
     profile = "${var.aws_profile}"
-    key = "${var.providers_key_prefix}/vpc-${var.vpc_env}/01-common/01-eip/terraform.tfstate"
+    key = "${var.statefile_key_prefix}/vpc-${var.vpc_env}/01-common/01-eip/terraform.tfstate"
     region = "${var.aws_region}"
   }
 }

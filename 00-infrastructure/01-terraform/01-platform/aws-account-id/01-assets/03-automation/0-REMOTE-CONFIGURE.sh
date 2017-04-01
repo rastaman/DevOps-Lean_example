@@ -1,9 +1,7 @@
 #!/bin/bash
 
-function setValues {
-				source ./GLOBAL_VARIABLES.sh
-           }
 
+source ./GLOBAL_VARIABLES.sh
 
 echo "########################################################"
 echo "Bucket Location: ${STATEFILE_BUCKET}"
@@ -14,7 +12,6 @@ echo "AWS region deployed: ${AWS_REGION}"
 echo "########################################################"
 echo "AWS profile used: ${ACCOUNT_PROFILE}"
 echo "########################################################"
-setValues
 ${TERRAFORM} remote config \
     -backend=s3 \
     -backend-config="bucket=${STATEFILE_BUCKET}" \
