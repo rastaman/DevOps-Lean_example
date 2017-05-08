@@ -11,7 +11,7 @@ To be more clearly articulated later. Definitions now, mesurements later.
 **** How much load can the system continously handle
 *** Scalability
 **** Can the system be scaled to handel more load. (IS that documented or automatic)
-*** Reliability
-**** Does your automation and infrastructure design allow for good
-*** Availability
-**** Does your Infrastructure design allow for any service or componant to be upgraded without down time.
+*** Recovery
+**** Does your automation and infrastructure design allow for good rebuild from scratch
+*** Monitoring
+**** Can you confirm what is a good state and automate confirmation and alerting. 
